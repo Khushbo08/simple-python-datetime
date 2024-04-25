@@ -11,16 +11,16 @@ steps:
 
 # docker build
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/bionic-tracer-421106/python', '.' ]
+  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:$SHORT_SHA', '.' ]
 
 # Docker push to Google Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push',  'us-central1-docker.pkg.dev/bionic-tracer-421106/python']
+  args: ['push',  'us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:$SHORT_SHA']
 
 
 # Store images in Google Artifact Registry 
 images:
-- 'us-central1-docker.pkg.dev/bionic-tracer-421106/python'
+- 'us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:$SHORT_SHA'
 
 
 options:

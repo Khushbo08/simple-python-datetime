@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh python-app-deploy --zone=us-central1-c --command="docker pull us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:${SHORT_SHA}"
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh python-app-deploy --zone=us-central1-c --command="docker run -p 80:80 us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:${SHORT_SHA}"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
