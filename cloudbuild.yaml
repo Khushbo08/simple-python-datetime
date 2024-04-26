@@ -17,12 +17,6 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push',  'us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:$SHORT_SHA']
 
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args:
-    - '-c'
-    - |
-      gcloud auth configure-docker us-docker.pkg.dev
 
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
