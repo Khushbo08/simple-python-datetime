@@ -29,7 +29,7 @@ steps:
   args:
     - '-c'
     - |
-      gcloud compute ssh datatime-python-app-cloudbuild-deploy --zone=us-central1-c --command="docker run -p 80:80 us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:${SHORT_SHA}"
+      gcloud compute ssh datatime-python-app-cloudbuild-deploy --zone=us-central1-c --command="docker run -p 8080:8081 us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:${SHORT_SHA}"
       
 # Store images in Google Artifact Registry 
 images:
