@@ -36,6 +36,5 @@ steps:
 images:
 - 'us-central1-docker.pkg.dev/bionic-tracer-421106/python/myapp:$SHORT_SHA'
 
-
 options:
   logging: CLOUD_LOGGING_ONLY
